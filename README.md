@@ -10,4 +10,9 @@ The code assumes the [UCI HAR dataset](https://d396qusza40orc.cloudfront.net/get
 
 ### Process
 * Set the working directory to the folder containing the 'UCI HAR Dataset' folder.
-* Run the script run_analysis.R, this will create a text file 'UCI_HAR_Means.txt' in the working directory.
+* Run the script run_analysis.R, this will create a text file 'UCI_HAR_Means.txt' in the working directory.  
+* To view the resulting output, run the below:
+```{r}
+data <- read.table("UCI_HAR_Means.txt", header=TRUE)
+View(data)
+```

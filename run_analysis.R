@@ -30,7 +30,7 @@ trainActivities$V1 <- factor(trainActivities$V1,
 trainSubjects <- read.table(trainSubjectTxt,col.names = "subject")
 
 # read in feature data
-restrict <- grep("[Mm]ean|std",features$V2)
+restrict <- grep("[Mm]ean|[Ss]td",features$V2)
 testFeatures <- read.table(testTxt,col.names = features$V2)[,restrict]
 trainFeatures <- read.table(trainTxt, col.names = features$V2)[,restrict]
 

@@ -34,12 +34,13 @@ restrict <- grep("[Mm]ean|[Ss]td",features$V2)
 testFeatures <- read.table(testTxt,col.names = features$V2)[,restrict]
 trainFeatures <- read.table(trainTxt, col.names = features$V2)[,restrict]
 
-# combine to total dataset
+# combine to total dataset and remove dots from names
 testData <- cbind("subject"=as.factor(testSubjects$subject),
                   "activity"=testActivities$V1,testFeatures)
 trainData <- cbind("subject"=as.factor(trainSubjects$subject),
                    "activity"=trainActivities$V1,trainFeatures)
 allData <- rbind(testData,trainData)
+names(allData) <- tolower(gsub("\\.+","",names(allData)))
 
 # reshape to create means per subject/activity combination and output
 moltenData <- melt(allData, id=c("subject","activity"), na.rm = TRUE)
